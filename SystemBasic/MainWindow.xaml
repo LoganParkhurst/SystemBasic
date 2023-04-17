@@ -6,7 +6,17 @@
         xmlns:local="clr-namespace:SystemBasic"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        
+    <Grid Background="#FFC7C1C1">
+        <Canvas Margin="0,0,0,128" Background="#FF5A5959">
+            <Button Content="Progress Time" Canvas.Left="700" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90"/>
+            <Rectangle x:Name="RCT_OutcomeRectangle" Height="254" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="205" Fill="#FF5A5454"/>
+            <Rectangle x:Name="RCT_StatusBox" Height="59" Canvas.Left="716" Stroke="Black" Canvas.Top="35" Width="58" Fill="#FF219628"/>
+            <Label x:Name="LBL_WhatHappened" Content="What Happend Box
+                   " Canvas.Left="13" Canvas.Top="12" HorizontalAlignment="Left" VerticalAlignment="Center" Width="199" HorizontalContentAlignment="Center" Padding="10,5,10,5" Background="#FFC3B8B8"/>
+            <TextBlock x:Name="TXB_WhatHappenedBox" Canvas.Left="13" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="38" Height="226" Width="199"/>
+            <Label x:Name="LBL_Day" Content="Day ####" Canvas.Left="220" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63"/>
+
+        </Canvas>
+
     </Grid>
 </Window>
