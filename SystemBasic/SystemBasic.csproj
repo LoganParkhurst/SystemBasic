@@ -57,10 +57,15 @@
     </ApplicationDefinition>
     <Compile Include="Beetle.cs" />
     <Compile Include="Cave.cs" />
+    <Compile Include="Consumer.cs" />
+    <Compile Include="Decomposer.cs" />
+    <Compile Include="Entity.cs" />
     <Compile Include="Hawk.cs" />
+    <Compile Include="IGuano.cs" />
+    <Compile Include="Person.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Vendor.cs" />
-    <Compile Include="Worm.cs" />
+    <Compile Include="Producer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>

@@ -5,18 +5,19 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:SystemBasic"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FFC7C1C1">
+        Title="Bats and Bracken Cave" Height="450" Width="800" MinWidth="800" MinHeight="450">
+    <Grid Background="#FFC7C1C1" Loaded="Grid_Loaded">
         <Canvas Margin="0,0,0,128" Background="#FF5A5959">
             <Button Content="Progress Time" Canvas.Left="700" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90"/>
             <Rectangle x:Name="RCT_OutcomeRectangle" Height="254" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="205" Fill="#FF5A5454"/>
-            <Rectangle x:Name="RCT_StatusBox" Height="59" Canvas.Left="716" Stroke="Black" Canvas.Top="35" Width="58" Fill="#FF219628"/>
+            <Rectangle x:Name="RCT_StatusBox" Height="66" Canvas.Left="716" Stroke="Black" Canvas.Top="35" Width="60" Fill="#FF219628" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Label x:Name="LBL_WhatHappened" Content="What Happend Box
-                   " Canvas.Left="13" Canvas.Top="12" HorizontalAlignment="Left" VerticalAlignment="Center" Width="199" HorizontalContentAlignment="Center" Padding="10,5,10,5" Background="#FFC3B8B8"/>
-            <TextBlock x:Name="TXB_WhatHappenedBox" Canvas.Left="13" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="38" Height="226" Width="199"/>
+                   " Canvas.Left="10" Canvas.Top="12" HorizontalAlignment="Left" VerticalAlignment="Center" Width="205" HorizontalContentAlignment="Center" Padding="10,5,10,5" Background="#FFC3B8B8"/>
+            <TextBlock x:Name="TXB_WhatHappenedBox" Canvas.Left="13" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="38" Height="226" Width="199" Padding="10,5,0,0"/>
             <Label x:Name="LBL_Day" Content="Day ####" Canvas.Left="220" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63"/>
 
         </Canvas>
+        <TextBlock x:Name="TXB_NameBox" HorizontalAlignment="Center" Margin="0,375,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Height="59" Width="160"/>
 
     </Grid>
 </Window>

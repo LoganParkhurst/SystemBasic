@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SystemBasic
 {
-    public class Worm : Creature
+    class Decomposer : Entity
     {
     }
 }

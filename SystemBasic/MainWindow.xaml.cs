@@ -20,9 +20,16 @@ namespace SystemBasic
     /// </summary>
     public partial class MainWindow : Window
     {
+        Cave cave = new Cave();
         public MainWindow()
         {
             InitializeComponent();
+        }
+
+        private void Grid_Loaded(object sender, RoutedEventArgs e)
+        {
+            TXB_WhatHappenedBox.Text = cave.Creatures.Count.ToString();
+            TXB_NameBox.DataContext = cave;
         }
     }
 }

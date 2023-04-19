@@ -6,10 +6,7 @@ using System.Threading.Tasks;
 
 namespace SystemBasic
 {
-    class Player : Entity
+    class Producer : Entity
     {
-        string name;
-        int personalAmountOfCorn = 0;
-        int personalAmountOfCotton = 0;
     }
 }
