@@ -21,6 +21,7 @@ namespace SystemBasic
     public partial class MainWindow : Window
     {
         Cave cave = new Cave();
+        
         public MainWindow()
         {
             InitializeComponent();
@@ -28,8 +29,19 @@ namespace SystemBasic
 
         private void Grid_Loaded(object sender, RoutedEventArgs e)
         {
-            TXB_WhatHappenedBox.Text = cave.Creatures.Count.ToString();
+            //TXB_WhatHappenedBox.Text = cave.Creatures.Count.ToString();
+            TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
+            TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
+            LBL_Day.DataContext = $"Day: {cave.Day}";
             TXB_NameBox.DataContext = cave;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            cave.ProgressDay();
+            LBL_Day.DataContext = $"Day: {cave.Day}";
+            TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
+            TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
         }
     }
 }

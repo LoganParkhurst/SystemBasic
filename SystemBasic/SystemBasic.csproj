@@ -55,16 +55,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Beetle.cs" />
     <Compile Include="Cave.cs" />
     <Compile Include="Consumer.cs" />
     <Compile Include="Decomposer.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="Hawk.cs" />
     <Compile Include="IGuano.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="Player.cs" />
-    <Compile Include="Vendor.cs" />
     <Compile Include="Producer.cs" />
     <Page Include="MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
@@ -74,7 +70,6 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Bat.cs" />
     <Compile Include="Creature.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
@@ -99,6 +94,7 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="ClassDiagram1.cd" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

@@ -1,0 +1,53 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="SystemBasic.Consumer" Collapsed="true">
+    <Position X="13.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Consumer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemBasic.Entity">
+    <Position X="11.5" Y="0.75" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAEAAAAEAAAEBAAAAQAEASAAAAIAAAAAAAAAAAAEAA=</HashCode>
+      <FileName>Entity.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemBasic.Person" Collapsed="true">
+    <Position X="9.25" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Person.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemBasic.Producer" Collapsed="true">
+    <Position X="10.75" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Producer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemBasic.Decomposer" Collapsed="true">
+    <Position X="14.75" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Decomposer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="SystemBasic.Cave">
+    <Position X="6.25" Y="1.25" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AgACAAAAIAAAAAAAAAAAAAQgACAAAAAAAAAAAAAAIAA=</HashCode>
+      <FileName>Cave.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="SystemBasic.IGuano" Collapsed="true">
+    <Position X="6.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IGuano.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

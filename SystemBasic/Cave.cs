@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
 using System.IO;
+using System.Diagnostics;
 
 namespace SystemBasic
 {
@@ -13,6 +14,7 @@ namespace SystemBasic
         #region Properties
         public string Name { get; set; }
         public List<Entity> Creatures = new List<Entity>();
+        public int Day = 0;
         #endregion
 
         public Cave()
@@ -20,6 +22,8 @@ namespace SystemBasic
             Name = "Bat Cave";
             Creatures = LoadEntities("../../../Data/entities.xml");
         }
+
+        #region Static
         public static List<Entity> LoadEntities(string fileName)
         {
             List<Entity> entities = new List<Entity>();
@@ -60,6 +64,55 @@ namespace SystemBasic
             }
             return entities;
 
+        }
+
+        public static string GetPopulation(List<Entity> creatures)
+        {
+            string result = "";
+
+            foreach(Entity entity in creatures)
+            {
+                if(entity.Species != "Human" && entity.Species != "Zea mays saccharata" && entity.Species != "Gossypium hirsutum")
+                {
+                    result += $"{entity.Amount} {entity.Name}'s\n";
+                }
+            }
+
+            return result;
+        }
+
+        public static string GetFoodLevels(List<Entity> entities)
+        {
+            string restult = "";
+
+            foreach(Entity entity in entities)
+            {
+                if(entity.Species == "Zea mays saccharata" || entity.Species == "Gossypium hirsutum")
+                {
+                    restult += $"{entity.Amount} of {entity.Name}\n";
+                }
+            }
+
+            return restult;
+        }
+        #endregion
+
+        public void ProgressDay()
+        {
+            foreach(Entity entity in Creatures)
+            {
+                Debug.WriteLine($"{entity.Name} {entity.Amount} {entity.FoodToEat} {Creatures.Find(x => x.FoodToEat == entity.FoodToEat).Name}");
+                if(entity.Species != "Human" && entity.Species != "Zea mays saccharata" && entity.Species != "Gossypium hirsutum")
+                {
+                    entity.PassTime(Creatures.Find(x => x.FoodToEat == entity.FoodToEat));
+                    if(entity.CanEat(Creatures.Find(x => x.FoodToEat == entity.FoodToEat)))
+                    {
+                        Creatures.Find(x => x.FoodToEat == entity.FoodToEat).Amount -= (entity.AmountOfFoodRequired * entity.Amount);
+                        Debug.WriteLine(Creatures.Find(x => x.FoodToEat == entity.FoodToEat).Amount);
+                    }
+                }
+            }
+            Day++;
         }
     }
 }

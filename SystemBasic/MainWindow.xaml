@@ -8,13 +8,21 @@
         Title="Bats and Bracken Cave" Height="450" Width="800" MinWidth="800" MinHeight="450">
     <Grid Background="#FFC7C1C1" Loaded="Grid_Loaded">
         <Canvas Margin="0,0,0,128" Background="#FF5A5959">
-            <Button Content="Progress Time" Canvas.Left="700" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="90"/>
-            <Rectangle x:Name="RCT_OutcomeRectangle" Height="254" Canvas.Left="10" Stroke="Black" Canvas.Top="10" Width="205" Fill="#FF5A5454"/>
+            <Button Content="Progress Time" Canvas.Left="686" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Click="Button_Click"/>
             <Rectangle x:Name="RCT_StatusBox" Height="66" Canvas.Left="716" Stroke="Black" Canvas.Top="35" Width="60" Fill="#FF219628" HorizontalAlignment="Left" VerticalAlignment="Center"/>
             <Label x:Name="LBL_WhatHappened" Content="What Happend Box
-                   " Canvas.Left="10" Canvas.Top="12" HorizontalAlignment="Left" VerticalAlignment="Center" Width="205" HorizontalContentAlignment="Center" Padding="10,5,10,5" Background="#FFC3B8B8"/>
-            <TextBlock x:Name="TXB_WhatHappenedBox" Canvas.Left="13" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="38" Height="226" Width="199" Padding="10,5,0,0"/>
-            <Label x:Name="LBL_Day" Content="Day ####" Canvas.Left="220" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="63"/>
+                   " Canvas.Left="15" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" HorizontalContentAlignment="Center" Padding="10,5,10,5" Background="#FFC3B8B8"/>
+            <TextBlock x:Name="TXB_WhatHappenedBox" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="43" Height="253" Width="200" Padding="10,5,0,0" Background="#FF9C9595" Canvas.Left="15" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <Label x:Name="LBL_Day" Content="{Binding}" Canvas.Left="611" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
+                <Label.Background>
+                    <SolidColorBrush Color="#FF504646" Opacity="0.9"/>
+                </Label.Background>
+                <Label.BorderBrush>
+                    <SolidColorBrush Color="Black" Opacity="0.5"/>
+                </Label.BorderBrush>
+            </Label>
+            <TextBlock x:Name="TXB_Population" Canvas.Left="611" TextWrapping="Wrap" Text="Current Population" Canvas.Top="146" Height="150" Width="165" Background="#FF9C9595" Padding="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TXB_FoodStorage" Canvas.Left="491" TextWrapping="Wrap" Text="Current food supply" Canvas.Top="226" Height="70" Width="110" Background="#FF9C9595" HorizontalAlignment="Left" VerticalAlignment="Center"/>
 
         </Canvas>
         <TextBlock x:Name="TXB_NameBox" HorizontalAlignment="Center" Margin="0,375,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Height="59" Width="160"/>
