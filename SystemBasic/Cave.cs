@@ -39,18 +39,22 @@ namespace SystemBasic
                     if (entity.GetAttribute("type") == "Producer")
                     {
                         temp = new Producer();
+                        temp.Type = Type.Producer;
                     }
                     else if (entity.GetAttribute("type") == "Consumer")
                     {
                         temp = new Consumer();
+                        temp.Type = Type.Consumer;
                     }
                     else if (entity.GetAttribute("type") == "Decomposer")
                     {
                         temp = new Decomposer();
+                        temp.Type = Type.Decomposer;
                     }
                     else if (entity.GetAttribute("type") == "Player" || entity.GetAttribute("type") == "Vendor")
                     {
                         temp = new Person();
+                        temp.Type = Type.Person;
                     }
                     else
                     {
@@ -60,7 +64,7 @@ namespace SystemBasic
                     temp.Species = entity.GetAttribute("species");
                     temp.FoodToEat = entity.GetAttribute("foodSource");
                     if (int.TryParse(entity.GetAttribute("amount"), out int a)) { temp.Amount = a; }
-                    if (int.TryParse(entity.GetAttribute("foodNeeded"), out int b)) { temp.AmountOfFoodRequired = b; }
+                    if (double.TryParse(entity.GetAttribute("foodNeeded"), out double b)) { temp.AmountOfFoodRequired = b; }
                     entities.Add(temp);
                 }
             }
@@ -103,10 +107,7 @@ namespace SystemBasic
         {
             foreach(Entity entity in Creatures)
             {
-                if(entity.Species != "Human" && entity.Species != "Zea mays saccharata" && entity.Species != "Gossypium hirsutum" && entity.Species != "Dermestes carnivora" && entity.Species != "Jacobsoniidae" && entity.Species != "Buteo jamaicensis")
-                {
-                    entity.PassTime(Creatures.Find(x => x.Species == entity.FoodToEat));
-                }
+                entity.PassTime(Creatures);
             }
             Day++;
         }

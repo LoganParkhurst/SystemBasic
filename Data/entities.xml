@@ -1,15 +1,15 @@
 <environment type = "Cave" name = "Bracken Cave">
-    <entity type="Producer" name="Corn" species = "Zea mays saccharata" amount = "1000">
+    <entity type="Producer" name="Corn" species = "Zea mays saccharata" amount = "10000">
     </entity>
-    <entity type="Producer" name="Cotton" species = "Gossypium hirsutum" amount = "1000">
+    <entity type="Producer" name="Cotton" species = "Gossypium hirsutum" amount = "10000">
+    </entity>
+    <entity type="Consumer" name="Corn earworm" species = "Helicoverpa zea" amount = "1500" foodSource = "Zea mays saccharata" foodNeeded = "0.125">
     </entity>
     <entity type="Consumer" name="Cotton Bollworm" species = "Helicoverpa zea" amount = "1300" foodSource = "Gossypium hirsutum" foodNeeded = "0.125">
     </entity>
-    <entity type="Consumer" name="Corn earworm" species = "Helicoverpa zea" amount = "50" foodSource = "Zea mays saccharata" foodNeeded = "0.125">
+    <entity type="Consumer" name="Brazilian free-tailed bat" species = "Tadarida brasiliensis" amount = "100" foodSource = "Helicoverpa zea" foodNeeded = "5">
     </entity>
-    <entity type="Consumer" name="Brazilian free-tailed bat" species = "Tadarida brasiliensis" amount = "10" foodSource = "Helicoverpa zea" foodNeeded = "33">
-    </entity>
-    <entity type="Consumer" name="Red-tailed hawk" species = "Buteo jamaicensis" amount = "1" foodSource = "Tadarida brasiliensis" foodNeeded = "1">
+    <entity type="Consumer" name="Red-tailed hawk" species = "Buteo jamaicensis" amount = "2" foodSource = "Tadarida brasiliensis" foodNeeded = "0.5">
     </entity>
     <entity type="Decomposer" name="Dermestid beetle" species = "Dermestes carnivora" amount = "2" >
     </entity>

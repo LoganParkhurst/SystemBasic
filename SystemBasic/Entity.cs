@@ -7,28 +7,42 @@ using System.Threading.Tasks;
 
 namespace SystemBasic
 {
+    public enum Type
+    {
+        Consumer,
+        Decomposer,
+        Producer,
+        Person
+    }
     public class Entity
     {
         public string Name { get; set; }
         public string Species { get; set; }
+        public Type Type { get; set; }
         public double Amount { get; set; }
         public string FoodToEat { get; set; }
         public double AmountOfFoodRequired { get; set; }
+        public int deterrent { get; set; } = 1;
 
-        public void PassTime(Entity food)
+        public void PassTime(List<Entity> Creatures)
         {
-            if (CanReproduce(food))
+            switch (this.Name)
             {
-                Reproduce(food);
-            }
+                case "Brazilian free-tailed bat":
+                    Consumer.EatBats(Creatures, (Creatures.Find(x => x.Name == "Brazilian free-tailed bat")));
+                    break;
 
-            if (CanEat(food))
-            {
-                Eat(food);
-            }
-            else
-            {
-                Die();
+                case "Corn earworm":
+                    Consumer.ConsumerEat(Creatures, (Creatures.Find(x => x.Name == "Corn earworm")));
+                    break;
+
+                case "Cotton Bollworm":
+                    Consumer.ConsumerEat(Creatures, (Creatures.Find(x => x.Name == "Cotton Bollworm")));
+                    break;
+
+                case "Red-tailed hawk":
+                    Consumer.ConsumerEat(Creatures, (Creatures.Find(x => x.Name == "Red-tailed hawk")));
+                    break;
             }
         }
 
@@ -49,26 +63,17 @@ namespace SystemBasic
             return false;
         }
 
-        public void Reproduce(Entity food)
+        public void Reproduce()
         {
-            if(food.Amount > ((this.AmountOfFoodRequired * this.Amount) * 2))
-            {
-                this.Amount = this.Amount % 2 + this.Amount;
-            }
+            Debug.WriteLine($"{this.Name} is currently at {this.Amount}");
+            Debug.WriteLine($"{Math.Round(this.Amount / 2)} + {this.Amount} = {this.Amount + Math.Round(this.Amount % 2)}");
+            this.Amount += Math.Round(this.Amount / 2);
+            Debug.WriteLine($"{this.Name} is currently at {this.Amount}");
         }
 
-        public void Eat(Entity food)
+        public void Die(Entity food)
         {
-            if(AmountOfFoodRequired <= food.Amount)
-            {
-                food.Amount -= (this.AmountOfFoodRequired * this.Amount);
-               //Debug.WriteLine(food.Amount);
-            }
-        }
-
-        public void Die()
-        {
-            this.Amount--;
+            this.Amount -= Math.Round(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)));
         }
 
     }
