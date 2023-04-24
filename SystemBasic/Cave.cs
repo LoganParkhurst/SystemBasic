@@ -58,7 +58,9 @@ namespace SystemBasic
                     }
                     temp.Name = entity.GetAttribute("name");
                     temp.Species = entity.GetAttribute("species");
+                    temp.FoodToEat = entity.GetAttribute("foodSource");
                     if (int.TryParse(entity.GetAttribute("amount"), out int a)) { temp.Amount = a; }
+                    if (int.TryParse(entity.GetAttribute("foodNeeded"), out int b)) { temp.AmountOfFoodRequired = b; }
                     entities.Add(temp);
                 }
             }
@@ -101,15 +103,9 @@ namespace SystemBasic
         {
             foreach(Entity entity in Creatures)
             {
-                Debug.WriteLine($"{entity.Name} {entity.Amount} {entity.FoodToEat} {Creatures.Find(x => x.FoodToEat == entity.FoodToEat).Name}");
-                if(entity.Species != "Human" && entity.Species != "Zea mays saccharata" && entity.Species != "Gossypium hirsutum")
+                if(entity.Species != "Human" && entity.Species != "Zea mays saccharata" && entity.Species != "Gossypium hirsutum" && entity.Species != "Dermestes carnivora" && entity.Species != "Jacobsoniidae" && entity.Species != "Buteo jamaicensis")
                 {
-                    entity.PassTime(Creatures.Find(x => x.FoodToEat == entity.FoodToEat));
-                    if(entity.CanEat(Creatures.Find(x => x.FoodToEat == entity.FoodToEat)))
-                    {
-                        Creatures.Find(x => x.FoodToEat == entity.FoodToEat).Amount -= (entity.AmountOfFoodRequired * entity.Amount);
-                        Debug.WriteLine(Creatures.Find(x => x.FoodToEat == entity.FoodToEat).Amount);
-                    }
+                    entity.PassTime(Creatures.Find(x => x.Species == entity.FoodToEat));
                 }
             }
             Day++;

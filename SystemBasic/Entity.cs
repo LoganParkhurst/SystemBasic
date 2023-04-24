@@ -24,14 +24,18 @@ namespace SystemBasic
 
             if (CanEat(food))
             {
-                //Eat(food);
+                Eat(food);
+            }
+            else
+            {
+                Die();
             }
         }
 
         public bool CanEat(Entity food)
         {
-            Debug.WriteLine($"{food.Name} has {food.Amount}");
-            if (food.Amount >= this.AmountOfFoodRequired)
+            //Debug.WriteLine($"{food.Name} has {food.Amount}");
+            if (food.Amount >= (this.AmountOfFoodRequired * this.Amount))
                 return true;
 
             return false;
@@ -39,7 +43,7 @@ namespace SystemBasic
 
         public bool CanReproduce(Entity food)
         {
-            if (food.Amount >= (this.AmountOfFoodRequired * 2))
+            if (food.Amount >= ((this.AmountOfFoodRequired * this.Amount) * 2))
                 return true;
 
             return false;
@@ -47,9 +51,9 @@ namespace SystemBasic
 
         public void Reproduce(Entity food)
         {
-            if(food.Amount > (this.AmountOfFoodRequired * 2))
+            if(food.Amount > ((this.AmountOfFoodRequired * this.Amount) * 2))
             {
-                this.Amount++;
+                this.Amount = this.Amount % 2 + this.Amount;
             }
         }
 
@@ -58,8 +62,13 @@ namespace SystemBasic
             if(AmountOfFoodRequired <= food.Amount)
             {
                 food.Amount -= (this.AmountOfFoodRequired * this.Amount);
-                Debug.WriteLine(food.Amount);
+               //Debug.WriteLine(food.Amount);
             }
+        }
+
+        public void Die()
+        {
+            this.Amount--;
         }
 
     }

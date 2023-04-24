@@ -10,8 +10,6 @@
         <Canvas Margin="0,0,0,128" Background="#FF5A5959">
             <Button Content="Progress Time" Canvas.Left="686" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Click="Button_Click"/>
             <Rectangle x:Name="RCT_StatusBox" Height="66" Canvas.Left="716" Stroke="Black" Canvas.Top="35" Width="60" Fill="#FF219628" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <Label x:Name="LBL_WhatHappened" Content="What Happend Box
-                   " Canvas.Left="15" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Top" Width="200" HorizontalContentAlignment="Center" Padding="10,5,10,5" Background="#FFC3B8B8"/>
             <TextBlock x:Name="TXB_WhatHappenedBox" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="43" Height="253" Width="200" Padding="10,5,0,0" Background="#FF9C9595" Canvas.Left="15" HorizontalAlignment="Center" VerticalAlignment="Top"/>
             <Label x:Name="LBL_Day" Content="{Binding}" Canvas.Left="611" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <Label.Background>
