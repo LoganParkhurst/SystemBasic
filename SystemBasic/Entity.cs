@@ -14,7 +14,7 @@ namespace SystemBasic
         Producer,
         Person
     }
-    public class Entity
+    public class Entity 
     {
         public string Name { get; set; }
         public string Species { get; set; }
@@ -22,7 +22,7 @@ namespace SystemBasic
         public double Amount { get; set; }
         public string FoodToEat { get; set; }
         public double AmountOfFoodRequired { get; set; }
-        public int deterrent { get; set; } = 1;
+        public int Deterrent { get; set; } = 1;
 
         public void PassTime(List<Entity> Creatures)
         {
@@ -57,7 +57,7 @@ namespace SystemBasic
 
         public bool CanReproduce(Entity food)
         {
-            if (food.Amount >= ((this.AmountOfFoodRequired * this.Amount) * 2))
+            if (food.Amount >= ((this.AmountOfFoodRequired * this.Amount) * 2) && this.Amount >= 2)
                 return true;
 
             return false;
@@ -73,7 +73,8 @@ namespace SystemBasic
 
         public void Die(Entity food)
         {
-            this.Amount -= Math.Round(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)));
+            Debug.WriteLine($"{this.Amount - Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)))} = {this.Amount} - {(Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired))))}");
+            this.Amount -= Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)));
         }
 
     }

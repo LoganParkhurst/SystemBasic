@@ -59,7 +59,8 @@
     <Compile Include="Consumer.cs" />
     <Compile Include="Decomposer.cs" />
     <Compile Include="Entity.cs" />
-    <Compile Include="IGuano.cs" />
+    <Compile Include="Guano.cs" />
+    <Compile Include="Item.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Producer.cs" />
     <Page Include="MainWindow.xaml">

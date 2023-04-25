@@ -10,7 +10,7 @@
         <Canvas Margin="0,0,0,128" Background="#FF5A5959">
             <Button Content="Progress Time" Canvas.Left="686" Canvas.Top="10" HorizontalAlignment="Left" VerticalAlignment="Center" Width="90" Click="Button_Click"/>
             <Rectangle x:Name="RCT_StatusBox" Height="66" Canvas.Left="716" Stroke="Black" Canvas.Top="35" Width="60" Fill="#FF219628" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock x:Name="TXB_WhatHappenedBox" TextWrapping="Wrap" Text="TextBlock" Canvas.Top="43" Height="253" Width="200" Padding="10,5,0,0" Background="#FF9C9595" Canvas.Left="15" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="TXB_Instructions" TextWrapping="Wrap" Canvas.Top="10" Height="125" Width="430" Padding="10,5,0,0" Background="#FF9C9595" Canvas.Left="10" HorizontalAlignment="Left" VerticalAlignment="Center" Text=""/>
             <Label x:Name="LBL_Day" Content="{Binding}" Canvas.Left="611" Canvas.Top="43" HorizontalAlignment="Left" VerticalAlignment="Center" Width="100" Height="50" HorizontalContentAlignment="Center" VerticalContentAlignment="Center">
                 <Label.Background>
                     <SolidColorBrush Color="#FF504646" Opacity="0.9"/>
@@ -19,11 +19,16 @@
                     <SolidColorBrush Color="Black" Opacity="0.5"/>
                 </Label.BorderBrush>
             </Label>
-            <TextBlock x:Name="TXB_Population" Canvas.Left="611" TextWrapping="Wrap" Text="Current Population" Canvas.Top="146" Height="150" Width="165" Background="#FF9C9595" Padding="10,5,0,0" HorizontalAlignment="Left" VerticalAlignment="Center"/>
-            <TextBlock x:Name="TXB_FoodStorage" Canvas.Left="491" TextWrapping="Wrap" Text="Current food supply" Canvas.Top="226" Height="70" Width="110" Background="#FF9C9595" HorizontalAlignment="Left" VerticalAlignment="Center"/>
+            <TextBlock x:Name="TXB_Population" Canvas.Left="611" TextWrapping="Wrap" Text="Current Population" Canvas.Top="128" Height="150" Width="165" Background="#FF9C9595" Padding="10,5,0,0" HorizontalAlignment="Center" VerticalAlignment="Top"/>
+            <TextBlock x:Name="TXB_FoodStorage" Canvas.Left="488" TextWrapping="Wrap" Text="Current food supply" Canvas.Top="208" Height="70" Width="110" Background="#FF9C9595" HorizontalAlignment="Left" VerticalAlignment="Top"/>
 
         </Canvas>
-        <TextBlock x:Name="TXB_NameBox" HorizontalAlignment="Center" Margin="0,375,0,0" TextWrapping="Wrap" Text="{Binding Path=Name}" VerticalAlignment="Top" Height="59" Width="160"/>
+        <TextBlock x:Name="TXB_Shop" HorizontalAlignment="Center" Margin="0,311,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="113" Width="780"/>
+        <Button x:Name="BTN_ADD" Content="Buy" HorizontalAlignment="Left" Margin="425,380,0,0" VerticalAlignment="Top" Height="20" Width="75" Click="BTN_ADD_Click"/>
+        <TextBox x:Name="TBL_Shop" HorizontalAlignment="Left" Margin="300,380,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" Height="20"/>
+        <Label x:Name="LBL_Shop" Content="SHOP" HorizontalAlignment="Center" Margin="0,311,0,0" VerticalAlignment="Top" Background="#FFD2C7C7" Foreground="Black" Height="40" Width="200" HorizontalContentAlignment="Center" VerticalContentAlignment="Center"/>
+        <Label x:Name="LBL_Cash" Content="Current Cash" HorizontalAlignment="Left" Margin="505,311,0,0" VerticalAlignment="Top" Width="100"/>
+        <Button x:Name="BTN_Sell" Content="Sell" HorizontalAlignment="Left" Margin="505,380,0,0" VerticalAlignment="Top" Width="82" Click="BTN_Sell_Click" Height="20"/>
 
     </Grid>
 </Window>
