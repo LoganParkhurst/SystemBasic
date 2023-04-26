@@ -8,10 +8,9 @@ namespace SystemBasic
 {
     public class Guano
     {
-        private Guano() { }
-        private static Guano instance = null;
-        public static Guano Guano_Instance { get { return instance; } }
+        
+        public double Amount { get; set; } = 0;
 
-        public double Amount;
+        public static Guano Guano_Instance = new Guano();
     }
 }

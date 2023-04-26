@@ -11,6 +11,9 @@ namespace SystemBasic
         public List<Item> Shop { get; set; } = new List<Item>();
         
         public double Coin { get; set; }
+        public double LowPrice { get; set; } = 0.15;
+        public double NormPrice { get; set; } = 0.25;
+        public double HighPrice { get; set; } = 0.30;
 
         public void SetUpShop()
         {
@@ -55,9 +58,25 @@ namespace SystemBasic
             }
         }
 
-        public void Sell()
+        public double Sell()
         {
-            
+            double result = 0;
+            Random rand = new Random();
+            int value = rand.Next(0, 11);
+            if (value <= 4)
+            {
+                result = Guano.Guano_Instance.Amount * LowPrice;
+            }
+            else if(value >= 5 && value <= 9)
+            {
+                result = Guano.Guano_Instance.Amount * NormPrice;
+            }
+            else if(value == 10)
+            {
+                result = Guano.Guano_Instance.Amount * HighPrice;
+            }
+            Guano.Guano_Instance.Amount = 0;
+            return result;
         }
     }
 }
