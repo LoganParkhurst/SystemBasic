@@ -57,9 +57,12 @@ namespace SystemBasic
         }
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
         {
+            Debug.WriteLine("BTN_ADD_Click Clicked");
             string input = TBL_Shop.Text;
             TBL_Shop.Text = "";
-            person.BuyItem(input);
+            person.BuyItem(input, cave.Creatures, player);
+            TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
+            TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
             LBL_Cash.DataContext = $"Cash: ${player.Coin}";
         }
         private void BTN_Sell_Click(object sender, RoutedEventArgs e)

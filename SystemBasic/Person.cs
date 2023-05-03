@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -40,20 +41,69 @@ namespace SystemBasic
             return result;
         }
 
-        public void BuyItem(string item)
+        public void BuyItem(string item, List<Entity> creatures, Person player)
         {
+            Debug.WriteLine("Made it to buy Item");
+            double amount = 0;
+            Random rng = new Random();
+
+            int deterrentPrice = 100;
+            int wormfeedPrice = 100;
+            int cornPrice = 100;
+            int cottonPrice = 100;
+
             switch (item.ToLower())
             {
                 case "deterrent":
+                    if (!(player.Coin >= deterrentPrice))
+                        break;
+
+                    Debug.WriteLine("Made it to buy Item");
+                    creatures.Find(x => x.Name == "Red-tailed hawk").Deterrent++;
+                    player.Coin -= deterrentPrice;
                     break;
 
-                case "wormfeed":
+                case "worm feed":
+                    if(!(player.Coin >= wormfeedPrice))
+                        break;
+                    
+                    Debug.WriteLine("Made it to buy wormfeed");
+                    if (rng.Next(0,11) <= 5)
+                    {
+                        amount = creatures.Find(x => x.Name == "Corn earworm").Amount;
+                        amount += (rng.Next(0, 11) * 10);
+                        creatures.Find(x => x.Name == "Corn earworm").Amount = amount;
+                        player.Coin -= wormfeedPrice;
+                    }
+                    else
+                    {
+                        amount = creatures.Find(x => x.Name == "Cotton Bollworm").Amount;
+                        amount += (rng.Next(0, 11) * 10);
+                        creatures.Find(x => x.Name == "Cotton Bollworm").Amount = amount;
+                        player.Coin -= wormfeedPrice;
+                    }
                     break;
 
                 case "corn":
+                    if (!(player.Coin >= cornPrice))
+                        break;
+
+                    Debug.WriteLine("Made it to buy corn");
+                    amount = creatures.Find(x => x.Name == "Corn").Amount;
+                    amount += (rng.Next(1, 6) * 100);
+                    creatures.Find(x => x.Name == "Corn").Amount = amount;
+                    player.Coin -= cornPrice;
                     break;
 
                 case "cotton":
+                    if (!(player.Coin >= cottonPrice))
+                        break;
+
+                    Debug.WriteLine("Made it to buy cotton");
+                    amount = creatures.Find(x => x.Name == "Cotton").Amount;
+                    amount += (rng.Next(1, 6) * 100);
+                    creatures.Find(x => x.Name == "Cotton").Amount = amount;
+                    player.Coin -= cottonPrice;
                     break;
             }
         }

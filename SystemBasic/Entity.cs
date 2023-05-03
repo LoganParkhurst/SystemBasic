@@ -75,6 +75,11 @@ namespace SystemBasic
         {
             Debug.WriteLine($"{this.Amount - Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)))} = {this.Amount} - {(Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired))))}");
             this.Amount -= Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)));
+
+            if(this.Amount < 0)
+            {
+                this.Amount = 0;
+            }
         }
 
     }

@@ -8,7 +8,6 @@ namespace SystemBasic
 {
     public class Guano
     {
-        
         public double Amount { get; set; } = 0;
 
         public static Guano Guano_Instance = new Guano();
