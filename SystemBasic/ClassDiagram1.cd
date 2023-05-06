@@ -1,23 +1,23 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
-  <Class Name="SystemBasic.Consumer" Collapsed="true">
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="SystemBasic.Consumer">
     <Position X="13.25" Y="5.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Consumer.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SystemBasic.Entity">
     <Position X="11.5" Y="0.75" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AAAEAAAAEAAAEBAAAAQAEASAAAAIAAAAAAAAAAAAEAA=</HashCode>
+      <HashCode>AAAEAAAAEAAAEBAgAAQAEASAAAAIAAAAAQAAAAAAGAA=</HashCode>
       <FileName>Entity.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="SystemBasic.Person" Collapsed="true">
     <Position X="9.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAEACEAAAAAAAQAAgBIAAEACAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Person.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -42,12 +42,19 @@
       <FileName>Cave.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Interface Name="SystemBasic.IGuano" Collapsed="true">
-    <Position X="6.75" Y="0.5" Width="1.5" />
+  <Class Name="SystemBasic.Guano">
+    <Position X="6.25" Y="4.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IGuano.cs</FileName>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAACAAAAgAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Guano.cs</FileName>
     </TypeIdentifier>
-  </Interface>
+  </Class>
+  <Enum Name="SystemBasic.Type">
+    <Position X="14.25" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AIAAAAAAAAAAAAAAAAAAAAACAAAQAAAAAAACAAAAAAA=</HashCode>
+      <FileName>Entity.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>

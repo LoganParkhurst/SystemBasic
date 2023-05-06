@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace SystemBasic
 {
@@ -26,23 +27,12 @@ namespace SystemBasic
 
         public void PassTime(List<Entity> Creatures)
         {
-            switch (this.Name)
+            if(this.Type == Type.Consumer)
             {
-                case "Brazilian free-tailed bat":
-                    Consumer.EatBats(Creatures, (Creatures.Find(x => x.Name == "Brazilian free-tailed bat")));
-                    break;
+                if (this.Name == "Brazilian free-tailed bat")
+                    Consumer.Eat(Creatures, this);
 
-                case "Corn earworm":
-                    Consumer.ConsumerEat(Creatures, (Creatures.Find(x => x.Name == "Corn earworm")));
-                    break;
-
-                case "Cotton Bollworm":
-                    Consumer.ConsumerEat(Creatures, (Creatures.Find(x => x.Name == "Cotton Bollworm")));
-                    break;
-
-                case "Red-tailed hawk":
-                    Consumer.ConsumerEat(Creatures, (Creatures.Find(x => x.Name == "Red-tailed hawk")));
-                    break;
+                Eat(Creatures);
             }
         }
 
@@ -79,6 +69,26 @@ namespace SystemBasic
             if(this.Amount < 0)
             {
                 this.Amount = 0;
+            }
+        }
+
+        public void Eat(List<Entity> entities)
+        {
+            var food = entities.Find(x => x.Species == this.FoodToEat);
+            Debug.WriteLine($"{this.Name} wants some {food.Name} it has {food.Amount}");
+            if (this.CanReproduce(food))
+            {
+                this.Reproduce();
+            }
+
+            if (this.CanEat(food))
+            {
+                food.Amount -= Math.Round(this.Amount * this.AmountOfFoodRequired) * this.Deterrent;
+                Guano.Guano_Instance.Amount += Math.Round(this.Amount * this.AmountOfFoodRequired) * this.Deterrent;
+            }
+            else
+            {
+                this.Die(food);
             }
         }
 

@@ -28,6 +28,13 @@ namespace SystemBasic
         Person person = new Person();
         Person player = new Person();
 
+        public delegate void Del(string message);
+        public static void DebugMessages(string message)
+        {
+            Debug.WriteLine(message);
+        }
+        Del handler = DebugMessages;
+
         public string Instructions = "Instructions\nClick the Progress Time button to progress to the next day\nIn the shop type in the Text Block if you have enough cash then you can buy it\nYou can sell Guano to earn cash\nYour Goal is to keep the system alive as long as possible";
 
         public MainWindow()
@@ -53,7 +60,7 @@ namespace SystemBasic
             TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
             TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
             LBL_GuanoCount.DataContext = $"Guano: {Guano.Guano_Instance.Amount}";
-            Debug.WriteLine(Cave.GetFoodLevels(cave.Creatures));
+            handler($"{Cave.GetFoodLevels(cave.Creatures)}");
         }
         private void BTN_ADD_Click(object sender, RoutedEventArgs e)
         {

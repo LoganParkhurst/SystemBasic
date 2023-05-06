@@ -13,8 +13,8 @@ namespace SystemBasic
     {
         #region Properties
         public string Name { get; set; }
-        public List<Entity> Creatures = new List<Entity>();
-        public int Day = 0;
+        public List<Entity> Creatures { get; set; } = new List<Entity>();
+        public int Day { get; set; } = 0;
         #endregion
 
         public Cave()
@@ -24,6 +24,7 @@ namespace SystemBasic
         }
 
         #region Static
+        //Made in class.
         public static List<Entity> LoadEntities(string fileName)
         {
             List<Entity> entities = new List<Entity>();

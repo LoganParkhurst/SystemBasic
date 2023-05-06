@@ -9,7 +9,7 @@ namespace SystemBasic
 {
     class Consumer : Entity
     {
-        public static void EatBats(List<Entity> entities, Entity entity)
+        public static void Eat(List<Entity> entities, Entity entity)
         {
             Random RNG = new Random();
             var food = entities.Find(x => x.Name == "Cotton Bollworm");
@@ -71,29 +71,5 @@ namespace SystemBasic
                 //Debug.WriteLine($"{entity.Name} wants some {food2.Name} it has {food2.Amount}");
             }
         }
-
-        public static void ConsumerEat(List<Entity> entities, Entity entity)
-        {
-            var food = entities.Find(x => x.Species == entity.FoodToEat);
-            Debug.WriteLine($"{entity.Name} wants some {food.Name} it has {food.Amount}");
-            if (entity.CanReproduce(food))
-            {
-                entity.Reproduce();
-            }
-
-            if (entity.CanEat(food))
-            {
-                food.Amount -= Math.Round(entity.Amount * entity.AmountOfFoodRequired) * entity.Deterrent;
-                Guano.Guano_Instance.Amount += Math.Round(entity.Amount * entity.AmountOfFoodRequired) * entity.Deterrent;
-            }
-            else
-            {
-                //Debug.WriteLine(Math.Round(Math.Abs(food.Amount - (entity.Amount * entity.AmountOfFoodRequired))));
-                entity.Die(food);
-                
-            }
-            //Debug.WriteLine($"{entity.Name} wants some {food.Name} it has {food.Amount}");
-        }
-
     }
 }
