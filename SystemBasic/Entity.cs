@@ -25,8 +25,14 @@ namespace SystemBasic
         public double AmountOfFoodRequired { get; set; }
         public int Deterrent { get; set; } = 1;
 
+        private int day;
+
         public void PassTime(List<Entity> Creatures)
         {
+            if(day > 10)
+                day = 1;
+
+
             if(this.Type == Type.Consumer)
             {
                 if (this.Name == "Brazilian free-tailed bat")
@@ -34,6 +40,15 @@ namespace SystemBasic
 
                 Eat(Creatures);
             }
+
+            if(this.Type != Type.Producer && this.Type != Type.Person && day == 7)
+            {
+                OldAge();
+            }
+
+            Debug.WriteLine(day);
+
+            day++;
         }
 
         public bool CanEat(Entity food)
@@ -55,15 +70,22 @@ namespace SystemBasic
 
         public void Reproduce()
         {
-            Debug.WriteLine($"{this.Name} is currently at {this.Amount}");
-            Debug.WriteLine($"{Math.Round(this.Amount / 2)} + {this.Amount} = {this.Amount + Math.Round(this.Amount % 2)}");
-            this.Amount += Math.Round(this.Amount / 2);
-            Debug.WriteLine($"{this.Name} is currently at {this.Amount}");
+            Debug.WriteLine($"half of {this.Name}'s {this.Amount} population is is {Math.Round(this.Amount / 2)}");
+            if (this.Species == "Helicoverpa zea")
+            {
+                this.Amount += Math.Round(this.Amount / 1.25);
+            }
+            else
+            {
+                this.Amount += Math.Round(this.Amount / 2);
+            }
+            
+            
         }
 
         public void Die(Entity food)
         {
-            Debug.WriteLine($"{this.Amount - Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)))} = {this.Amount} - {(Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired))))}");
+            //Debug.WriteLine($"{this.Amount - Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)))} = {this.Amount} - {(Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired))))}");
             this.Amount -= Math.Ceiling(Math.Abs(food.Amount - (this.Amount * this.AmountOfFoodRequired)));
 
             if(this.Amount < 0)
@@ -72,10 +94,19 @@ namespace SystemBasic
             }
         }
 
+        public void OldAge()
+        {
+            double elders = 0;
+            //creatures die of old age
+            elders = Math.Floor(this.Amount * 0.01);
+            Debug.WriteLine($"{this.Name} has a population of {this.Amount} and 0.01 of that is {elders}");
+            this.Amount -= elders;
+        }
+
         public void Eat(List<Entity> entities)
         {
             var food = entities.Find(x => x.Species == this.FoodToEat);
-            Debug.WriteLine($"{this.Name} wants some {food.Name} it has {food.Amount}");
+            //Debug.WriteLine($"{this.Name} wants some {food.Name} it has {food.Amount}");
             if (this.CanReproduce(food))
             {
                 this.Reproduce();

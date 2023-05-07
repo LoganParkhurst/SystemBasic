@@ -26,7 +26,7 @@ namespace SystemBasic
 
             if (RNG.Next(1, 3) == 2)
             {
-                Debug.WriteLine($"{entity.Name} wants some {food.Name} it has {food.Amount}");
+                //Debug.WriteLine($"{entity.Name} wants some {food.Name} it has {food.Amount}");
                 if (entity.CanEat(food))
                 {
                     food.Amount -= (entity.Amount * entity.AmountOfFoodRequired);
@@ -36,7 +36,7 @@ namespace SystemBasic
                 {
                     if (entity.CanEat(food2))
                     {
-                        Debug.WriteLine($"{entity.Name} wants some {food2.Name} it has {food2.Amount}");
+                        //Debug.WriteLine($"{entity.Name} wants some {food2.Name} it has {food2.Amount}");
                         food2.Amount -= (entity.Amount * entity.AmountOfFoodRequired);
                         food2.Amount = Math.Round(food2.Amount);
                     }
@@ -49,7 +49,7 @@ namespace SystemBasic
             }
             else
             {
-                Debug.WriteLine($"{entity.Name} wants some {food2.Name} it has {food2.Amount}");
+                //Debug.WriteLine($"{entity.Name} wants some {food2.Name} it has {food2.Amount}");
                 if (entity.CanEat(food2))
                 {
                     food2.Amount -= (entity.Amount * entity.AmountOfFoodRequired);
@@ -59,7 +59,7 @@ namespace SystemBasic
                 {
                     if (entity.CanEat(food))
                     {
-                        Debug.WriteLine($"{entity.Name} wants some {food.Name} it has {food.Amount}");
+                        //Debug.WriteLine($"{entity.Name} wants some {food.Name} it has {food.Amount}");
                         food.Amount -= (entity.Amount * entity.AmountOfFoodRequired);
                         food.Amount = Math.Round(food.Amount);
                     }

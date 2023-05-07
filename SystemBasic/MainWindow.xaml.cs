@@ -49,6 +49,7 @@ namespace SystemBasic
             TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
             TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
             person.SetUpShop();
+            RCT_StatusBox.DataContext = "#FFF000";
             TXB_Shop.Text = person.ShowShop();
             LBL_Day.DataContext = $"Day: {cave.Day}";
             LBL_Cash.DataContext = $"Cash: {player.Coin.ToString("C2", CultureInfo.CurrentCulture)}";
@@ -59,6 +60,13 @@ namespace SystemBasic
             cave.ProgressDay();
             LBL_Day.DataContext = $"Day: {cave.Day}";
             TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
+            if (cave.Creatures.Find(x => x.Name == "Brazilian free-tailed bat").Amount >= 101)
+                RCT_StatusBox.DataContext = "#FF219628";
+            else if (cave.Creatures.Find(x => x.Name == "Brazilian free-tailed bat").Amount <= 100 && cave.Creatures.Find(x => x.Name == "Brazilian free-tailed bat").Amount > 0)
+                RCT_StatusBox.DataContext = "#FFF000";
+            else
+                RCT_StatusBox.DataContext = "#FFFF0000";
+
             TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
             LBL_GuanoCount.DataContext = $"Guano: {Guano.Guano_Instance.Amount}";
             handler($"{Cave.GetFoodLevels(cave.Creatures)}");
