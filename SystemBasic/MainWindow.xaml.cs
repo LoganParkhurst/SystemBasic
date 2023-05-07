@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Diagnostics;
 using System.Linq;
 using System.Text;
@@ -50,7 +51,7 @@ namespace SystemBasic
             person.SetUpShop();
             TXB_Shop.Text = person.ShowShop();
             LBL_Day.DataContext = $"Day: {cave.Day}";
-            LBL_Cash.DataContext = $"Cash: ${player.Coin}";
+            LBL_Cash.DataContext = $"Cash: {player.Coin.ToString("C2", CultureInfo.CurrentCulture)}";
             LBL_GuanoCount.DataContext = $"Guano: {Guano.Guano_Instance.Amount}";
         }
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,7 +71,7 @@ namespace SystemBasic
             person.BuyItem(input, cave.Creatures, player);
             TXB_Population.Text = Cave.GetPopulation(cave.Creatures);
             TXB_FoodStorage.Text = Cave.GetFoodLevels(cave.Creatures);
-            LBL_Cash.DataContext = $"Cash: ${player.Coin}";
+            LBL_Cash.DataContext = $"Cash: {player.Coin.ToString("C2", CultureInfo.CurrentCulture)}";
         }
         private void BTN_Sell_Click(object sender, RoutedEventArgs e)
         {
@@ -78,7 +79,7 @@ namespace SystemBasic
             {
                 player.Coin += person.Sell();
             }
-            LBL_Cash.DataContext = $"Cash: ${player.Coin}";
+            LBL_Cash.DataContext = $"Cash: {player.Coin.ToString("C2", CultureInfo.CurrentCulture)}";
             LBL_GuanoCount.DataContext = $"Guano: {Guano.Guano_Instance.Amount}";
         }
     }

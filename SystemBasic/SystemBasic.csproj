@@ -60,6 +60,7 @@
     <Compile Include="Decomposer.cs" />
     <Compile Include="Entity.cs" />
     <Compile Include="Guano.cs" />
+    <Compile Include="IConsumption.cs" />
     <Compile Include="Item.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="Producer.cs" />

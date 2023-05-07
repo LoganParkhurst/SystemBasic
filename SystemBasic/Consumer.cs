@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace SystemBasic
 {
-    class Consumer : Entity
+    class Consumer : Entity, IConsumption
     {
         public static void Eat(List<Entity> entities, Entity entity)
         {
@@ -70,6 +70,16 @@ namespace SystemBasic
                 }
                 //Debug.WriteLine($"{entity.Name} wants some {food2.Name} it has {food2.Amount}");
             }
+        }
+
+        public void ProduceGuano(double food)
+        {
+            Guano.Guano_Instance.Amount += Math.Round(this.Amount * this.AmountOfFoodRequired) * this.Deterrent;
+        }
+
+        public void Consume(List<Entity> entities)
+        {
+
         }
     }
 }
