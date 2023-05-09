@@ -43,7 +43,7 @@ namespace SystemBasic
 
         public void BuyItem(string item, List<Entity> creatures, Person player)
         {
-            Debug.WriteLine("Made it to buy Item");
+            //Debug.WriteLine("Made it to buy Item");
             double amount = 0;
             Random rng = new Random();
 
@@ -58,7 +58,7 @@ namespace SystemBasic
                     if (!(player.Coin >= deterrentPrice))
                         break;
 
-                    Debug.WriteLine("Made it to buy Item");
+                    //Debug.WriteLine("Made it to buy Item");
                     creatures.Find(x => x.Name == "Red-tailed hawk").Deterrent++;
                     player.Coin -= deterrentPrice;
                     break;
@@ -88,7 +88,7 @@ namespace SystemBasic
                     if (!(player.Coin >= cornPrice))
                         break;
 
-                    Debug.WriteLine("Made it to buy corn");
+                    //Debug.WriteLine("Made it to buy corn");
                     amount = creatures.Find(x => x.Name == "Corn").Amount;
                     amount += (rng.Next(1, 6) * 100);
                     creatures.Find(x => x.Name == "Corn").Amount = amount;
@@ -99,7 +99,7 @@ namespace SystemBasic
                     if (!(player.Coin >= cottonPrice))
                         break;
 
-                    Debug.WriteLine("Made it to buy cotton");
+                    //Debug.WriteLine("Made it to buy cotton");
                     amount = creatures.Find(x => x.Name == "Cotton").Amount;
                     amount += (rng.Next(1, 6) * 100);
                     creatures.Find(x => x.Name == "Cotton").Amount = amount;
